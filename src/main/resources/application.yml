@@ -1,0 +1,18 @@
+spring:
+  # 数据源
+  datasource:
+    name: zb
+    url: jdbc:mysql://192.168.1.85:9306/zhibo?useSSL=false&serverTimezone=UTC&characterEncoding=utf-8
+    username: root
+    password: 123456
+    driver-class-name: com.mysql.cj.jdbc.Driver
+
+# 在命令行打印数据库日志
+logging:
+  level:
+    com.example.demo.dao : debug
+
+# 数据库字段与POJO中的属性映射时，将数据库的下划线命名规则自动转换成驼峰命名.
+mybatis:
+  configuration:
+    mapUnderscoreToCamelCase: true
