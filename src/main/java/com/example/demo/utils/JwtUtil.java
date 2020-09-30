@@ -10,7 +10,7 @@ import java.util.Map;
 
 public class JwtUtil {
     // 加密密钥
-    private static final String SING = "huling981025";
+    private static final String SING = "~!@#$%^&*()_+<>?{}|";
 
     // 加密token
     public static String getToken(Map<String, String> map) {
