@@ -1,10 +1,10 @@
 package com.example.demo.pojo;
 
 public class Suggest {
-    int suggestId;          // 建议id
-    String suggestContact;  // 联系方式
-    String suggestView;     // 建议内容
-    int suggestTime;        // 建议提交时间
+    private int suggestId;          // 建议id
+    private String suggestContact;  // 联系方式
+    private String suggestView;     // 建议内容
+    private int suggestTime;        // 建议提交时间
 
     public int getSuggestId() {
         return suggestId;
