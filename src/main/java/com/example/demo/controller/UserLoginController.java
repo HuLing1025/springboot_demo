@@ -3,8 +3,6 @@ package com.example.demo.controller;
 import com.example.demo.pojo.User;
 import com.example.demo.service.UserService;
 import com.example.demo.utils.JwtUtil;
-import com.fasterxml.jackson.core.JsonProcessingException;
-import com.fasterxml.jackson.databind.ObjectMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
