@@ -11,8 +11,11 @@ public class InterceptorsConfig implements WebMvcConfigurer {
     @Override
     public void addInterceptors(InterceptorRegistry registry) {
         registry.addInterceptor(new JwtInterceptors())
-                //.addPathPatterns("/zb/user/**")
-                .addPathPatterns("/zb/admin/**");
+                .addPathPatterns("/springboot/user/**")
+                .excludePathPatterns("/springboot/user/login")
+                .excludePathPatterns("/springboot/user/logon")
+                .excludePathPatterns("/springboot/user/testlogin")
+                .excludePathPatterns("/springboot/user/testlogon");
     }
 
     @Override

@@ -1,0 +1,26 @@
+# production environment
+spring:
+  # datasource 1.
+  datasource:
+    name: zb
+    url: jdbc:mysql://116.62.104.36:3306/springboot_prod?useSSL=false&serverTimezone=UTC&characterEncoding=utf-8
+    username: root
+    password: Huling1025
+    driver-class-name: com.mysql.cj.jdbc.Driver
+
+# print sql log.
+logging:
+  level:
+    com.example.demo.dao : debug
+
+# Mapping from database's fields to entry's variables, using '-' in database and using upper case in entry.
+mybatis:
+  configuration:
+    mapUnderscoreToCamelCase: true
+
+server:
+  servlet:
+    encoding:
+      charset: UTF-8
+      enabled: true
+      force: true

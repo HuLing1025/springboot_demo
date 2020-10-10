@@ -17,13 +17,12 @@ public class JwtInterceptors implements HandlerInterceptor {
         String token = request.getHeader("token");
 
         if(token == null){
-            map.put("status", false);
-            map.put("msg", "token is null");
+            map.put("status", 500);
+            map.put("msg", "token为空!");
             // map转json
             String json = new ObjectMapper().writeValueAsString(map);
 
             response.getWriter().println(json);
-
             return false;
         }
 
@@ -34,20 +33,20 @@ public class JwtInterceptors implements HandlerInterceptor {
             return true;
         } catch (SignatureVerificationException e) {
             e.printStackTrace();
-            map.put("msg", "无效签名");
+            map.put("msg", "无效签名!");
         } catch (TokenExpiredException e){
             e.printStackTrace();
-            map.put("msg", "token过期");
+            map.put("msg", "token过期!");
         }catch (ArithmeticException e){
             e.printStackTrace();
-            map.put("msg", "token算法不一致");
+            map.put("msg", "token算法不一致!");
         }catch (Exception e){
             e.printStackTrace();
-            map.put("msg", "");
+            map.put("msg", "token验证失败!");
         }
 
         // 失败状态
-        map.put("status", false);
+        map.put("status", 500);
 
         // map转json
         String json = new ObjectMapper().writeValueAsString(map);

@@ -1,12 +1,11 @@
 package com.example.demo.pojo;
 
 public class User {
-    private int id;
-    private String name;
-    private String password;
-    private String mailbox;
-    private String website;
-    private long goldconis;
+    private int id;                 // id
+    private String username;        // 用户名称
+    private String password;        // 登录密码
+    private Role role;              // 角色
+    private int ban;                // 账号状态
 
     public int getId() {
         return id;
@@ -16,12 +15,12 @@ public class User {
         this.id = id;
     }
 
-    public String getName() {
-        return name;
+    public String getUsername() {
+        return username;
     }
 
-    public void setName(String name) {
-        this.name = name;
+    public void setUsername(String username) {
+        this.username = username;
     }
 
     public String getPassword() {
@@ -32,39 +31,30 @@ public class User {
         this.password = password;
     }
 
-    public String getMailbox() {
-        return mailbox;
+    public Role getRole() {
+        return role;
     }
 
-    public void setMailbox(String mailbox) {
-        this.mailbox = mailbox;
+    public void setRole(Role role) {
+        this.role = role;
     }
 
-    public String getWebsite() {
-        return website;
+    public int getBan() {
+        return ban;
     }
 
-    public void setWebsite(String website) {
-        this.website = website;
-    }
-
-    public long getGoldconis() {
-        return goldconis;
-    }
-
-    public void setGoldconis(long goldconis) {
-        this.goldconis = goldconis;
+    public void setBan(int ban) {
+        this.ban = ban;
     }
 
     @Override
     public String toString() {
         return "User{" +
                 "id=" + id +
-                ", name='" + name + '\'' +
+                ", username='" + username + '\'' +
                 ", password='" + password + '\'' +
-                ", mailbox='" + mailbox + '\'' +
-                ", website='" + website + '\'' +
-                ", goldconis=" + goldconis +
+                ", role=" + role +
+                ", ban=" + ban +
                 '}';
     }
 }
