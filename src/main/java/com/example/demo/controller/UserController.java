@@ -3,6 +3,7 @@ package com.example.demo.controller;
 import com.example.demo.pojo.Role;
 import com.example.demo.pojo.User;
 import com.example.demo.service.UserService;
+import com.example.demo.utils.MD5Util;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 

@@ -6,6 +6,7 @@ import com.example.demo.pojo.Role;
 import com.example.demo.pojo.User;
 import com.example.demo.service.UserService;
 import com.example.demo.utils.JwtUtil;
+import com.example.demo.utils.MD5Util;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -25,12 +26,12 @@ public class UserServiceImp implements UserService {
         HashMap<String, Object> resultMap = new HashMap<>();
         if(userResult != null) {
            String password = userResult.getPassword();
-           //
-           if(user.getPassword().equals(password)){     //验证密码
-               if(user.getBan() == 1){
+           // MD5加密登录密码
+           if(MD5Util.getMD5(user.getPassword()).equals(password)){     //验证密码
+               if(userResult.getBan() == 1){
                    resultMap.put("status", 500);
                    resultMap.put("message", "该账号已被封禁!");
-               }else if(user.getBan() == 0){
+               }else if(userResult.getBan() == 0){
                    HashMap<String,String> getToken = new HashMap<>();
                    getToken.put("username", user.getUsername());
                    String token = JwtUtil.getToken(getToken);
@@ -62,10 +63,8 @@ public class UserServiceImp implements UserService {
             Role roleResult = roleDao.selectRole(user.getRole());
             if(roleResult != null){
                 user.setRole(roleResult);
-                String password = user.getPassword();
-                // TODO MD5加密
-                //
-                user.setPassword(password);
+                // MD5加密
+                user.setPassword(MD5Util.getMD5(user.getPassword()));
                 userDao.insertUser(user);
                 resultMap.put("status", 200);
                 resultMap.put("message", "注册成功!");
