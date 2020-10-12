@@ -19,10 +19,8 @@ public class JwtInterceptors implements HandlerInterceptor {
         if(token == null){
             map.put("status", 500);
             map.put("msg", "token为空!");
-            // map转json
-            String json = new ObjectMapper().writeValueAsString(map);
 
-            response.getWriter().println(json);
+            response.getWriter().println(map);
             return false;
         }
 
@@ -48,10 +46,7 @@ public class JwtInterceptors implements HandlerInterceptor {
         // 失败状态
         map.put("status", 500);
 
-        // map转json
-        String json = new ObjectMapper().writeValueAsString(map);
-
-        response.getWriter().println(json);
+        response.getWriter().println(map);
 
         return false;
     }
