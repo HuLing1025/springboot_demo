@@ -4,6 +4,7 @@ import com.example.demo.pojo.Role;
 import com.example.demo.pojo.User;
 import com.example.demo.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.HashMap;
@@ -45,5 +46,13 @@ public class UserController {
     public HashMap<String, Object> logout() {
 
         return null;
+    }
+
+    // 测试接口
+    @GetMapping("/test")
+    public HashMap<String, Object> test(@RequestBody User user) {
+        HashMap<String, Object> result = new HashMap<>();
+        result.put("user", user);
+        return result;
     }
 }

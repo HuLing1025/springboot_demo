@@ -37,6 +37,7 @@ public class UserServiceImp implements UserService {
                    String token = JwtUtil.getToken(getToken);
                    resultMap.put("status", 200);
                    resultMap.put("message", "登录成功!");
+                   resultMap.put("user", userResult);
                    resultMap.put("token", token);
                }
             }else{
@@ -67,6 +68,7 @@ public class UserServiceImp implements UserService {
                 user.setPassword(MD5Util.getMD5(user.getPassword()));
                 userDao.insertUser(user);
                 resultMap.put("status", 200);
+                resultMap.put("user", user);
                 resultMap.put("message", "注册成功!");
             }else{
                 resultMap.put("status", 500);

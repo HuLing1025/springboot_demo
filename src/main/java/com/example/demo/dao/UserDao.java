@@ -1,14 +1,16 @@
 package com.example.demo.dao;
 
 import com.example.demo.pojo.User;
-import org.apache.ibatis.annotations.Insert;
-import org.apache.ibatis.annotations.Mapper;
-import org.apache.ibatis.annotations.Select;
-import org.apache.ibatis.annotations.Update;
+import org.apache.ibatis.annotations.*;
 
 @Mapper
 public interface UserDao {
-    @Select("SELECT * FROM db_user WHERE username=#{username}")
+    @Select("SELECT * FROM db_user,db_role WHERE username=#{username} AND db_role.id=db_user.role_id")
+    @Results({
+            @Result(property = "role.id", column = "role_id"),
+            @Result(property = "role.role", column = "role"),
+            @Result(property = "role.permission", column = "permission")
+    })
     User selectUser(User user);
 
     @Insert("INSERT INTO db_user(username,password,role_id) VALUES(#{username},#{password},#{role.id})")

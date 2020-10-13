@@ -14,6 +14,7 @@ public class InterceptorsConfig implements WebMvcConfigurer {
                 .addPathPatterns("/springboot/user/**")
                 .excludePathPatterns("/springboot/user/login")
                 .excludePathPatterns("/springboot/user/logon")
+                .excludePathPatterns("/springboot/user/test")
                 .excludePathPatterns("/springboot/user/testlogin")
                 .excludePathPatterns("/springboot/user/testlogon");
     }
