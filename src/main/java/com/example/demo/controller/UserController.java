@@ -4,7 +4,6 @@ import com.example.demo.pojo.Role;
 import com.example.demo.pojo.User;
 import com.example.demo.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.HashMap;
