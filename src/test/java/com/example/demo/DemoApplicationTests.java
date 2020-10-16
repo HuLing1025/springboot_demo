@@ -1,5 +1,6 @@
 package com.example.demo;
 
+import com.example.demo.controller.UserController;
 import org.junit.Before;
 import org.junit.Test;
 import org.springframework.boot.test.context.SpringBootTest;
@@ -13,7 +14,7 @@ public class DemoApplicationTests {
 
     @Before
     public void setUp() throws Exception {
-        mvc = MockMvcBuilders.standaloneSetup(new TagController()).build();
+        mvc = MockMvcBuilders.standaloneSetup(new UserController()).build();
     }
 
     @Test
