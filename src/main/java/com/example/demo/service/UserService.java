@@ -1,8 +1,7 @@
 package com.example.demo.service;
 
+import com.example.demo.pojo.Result;
 import com.example.demo.pojo.User;
-
-import java.util.HashMap;
 
 public interface UserService {
     /*
@@ -10,27 +9,27 @@ public interface UserService {
     * @param user
     * @return
     * */
-    HashMap<String, Object> login(User user);
+    Result login(User user);
 
     /*
     * 注册
     * @param user
     * @return
     * */
-    HashMap<String, Object> logon(User user);
+    Result logon(User user);
 
     /*
     * 封号
     * @param user
     * @return
     * */
-    HashMap<String, Object> banLogin(User user);
+    Result banLogin(User user);
 
     /*
     * 解封
     * @param user
     * @return
     * */
-    HashMap<String, Object> allowLogin(User user);
+    Result allowLogin(User user);
 
 }
