@@ -6,6 +6,8 @@ import com.example.demo.pojo.User;
 import com.example.demo.service.UserService;
 import com.example.demo.utils.ResponseUtil;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.redis.connection.RedisConnectionCommands;
+import org.springframework.data.redis.core.RedisTemplate;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.HashMap;
@@ -15,6 +17,9 @@ import java.util.HashMap;
 public class UserController {
     @Autowired
     private UserService userService;
+
+    @Autowired
+    private RedisTemplate redisTemplate;
 
     @PostMapping("/logon")
     public Result logon(@RequestBody User user) {
@@ -51,8 +56,9 @@ public class UserController {
 
     // 测试接口
     @GetMapping("/test")
-    public Result test(@RequestBody User user) {
-
+    @ResponseBody
+    public Result test() {
+        System.out.println(redisTemplate.execute(RedisConnectionCommands::ping));
         return ResponseUtil.success();
     }
 }
