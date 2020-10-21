@@ -4,10 +4,12 @@ import lombok.Getter;
 import lombok.Setter;
 import lombok.ToString;
 
+import java.io.Serializable;
+
 @Getter
 @Setter
 @ToString
-public class User {
+public class User implements Serializable {
     private int id;                 // id
     private String username;        // 用户名称
     private String password;        // 登录密码

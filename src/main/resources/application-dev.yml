@@ -6,7 +6,7 @@ spring:
     port: 6379
     password: Huling1025
     database: 0
-    timeout: 5000
+    timeout: 200
   # datasource 1.
   datasource:
     name: demo1
