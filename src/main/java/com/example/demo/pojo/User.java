@@ -9,7 +9,7 @@ import java.io.Serializable;
 @Getter
 @Setter
 @ToString
-public class User implements Serializable {
+public class User{
     private int id;                 // id
     private String username;        // 用户名称
     private String password;        // 登录密码
