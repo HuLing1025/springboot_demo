@@ -43,10 +43,14 @@ public class UserController {
         return userService.allowLogin(user);
     }
 
+    @PutMapping("/update")
+    public Result updateUser(@RequestBody User user){
+        return userService.updateUser(user);
+    }
+
     @GetMapping("/logout")
     public HashMap<String, Object> logout() {
 
         return null;
     }
-
 }

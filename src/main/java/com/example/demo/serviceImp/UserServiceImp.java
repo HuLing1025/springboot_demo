@@ -12,7 +12,9 @@ import com.example.demo.utils.ResponseUtil;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.sql.SQLException;
 import java.util.HashMap;
+import java.util.List;
 
 @Service
 public class UserServiceImp implements UserService {
@@ -85,6 +87,33 @@ public class UserServiceImp implements UserService {
             return ResponseUtil.success(200, "解封成功!");
         }else{
             return ResponseUtil.error(500, "解封失败!");
+        }
+    }
+
+    @Override
+    public Result getUserList() {
+        List<User> userList = userDao.selectUsers();
+        // 空列表时返回
+        if(userList == null || userList.isEmpty()){
+            return ResponseUtil.success(200, "用户列表为空!");
+        }
+        HashMap<String, Object> data = new HashMap<String, Object>();
+        data.put("users", userList);
+        return ResponseUtil.success(data, 200, "获取成功!");
+    }
+
+    @Override
+    public Result updateUser(User user) {
+        try{
+            Integer count = userDao.updateUser(user);
+            if(count == 0){     //记录变更0条,失败
+                return ResponseUtil.error(500, "更新" + count.toString() + "条!");
+            }else{              //记录变更1条,成功
+                return ResponseUtil.success(200, "成功更新" + count.toString() + "条!");
+            }
+        }catch(Exception e){
+            e.printStackTrace();
+            return ResponseUtil.error(500, "SQLException:" + e.getMessage());
         }
     }
 }

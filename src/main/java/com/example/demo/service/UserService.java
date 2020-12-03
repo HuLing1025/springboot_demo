@@ -32,4 +32,17 @@ public interface UserService {
     * */
     Result allowLogin(User user);
 
+    /*
+     * 获取用户列表
+     * @return
+     * */
+    Result getUserList();
+
+    /*
+     * 更新用户
+     * @param user
+     * @return
+     * */
+    Result updateUser(User user);
+
 }
