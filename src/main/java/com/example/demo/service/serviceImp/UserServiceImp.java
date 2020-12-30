@@ -1,4 +1,4 @@
-package com.example.demo.serviceImp;
+package com.example.demo.service.serviceImp;
 
 import com.example.demo.dao.RoleDao;
 import com.example.demo.dao.UserDao;
@@ -12,7 +12,6 @@ import com.example.demo.utils.ResponseUtil;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import java.sql.SQLException;
 import java.util.HashMap;
 import java.util.List;
 

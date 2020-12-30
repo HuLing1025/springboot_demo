@@ -1,3 +1,10 @@
+server:
+  servlet:
+    encoding:
+      charset: UTF-8
+      enabled: true
+      force: true
+  port: 8090
 # development environment
 spring:
   # redis
@@ -25,11 +32,3 @@ logging:
 mybatis:
   configuration:
     mapUnderscoreToCamelCase: true
-
-
-server:
-  servlet:
-    encoding:
-      charset: UTF-8
-      enabled: true
-      force: true
