@@ -27,6 +27,7 @@ public class TestController {
     @PostMapping("/testRedis")
     public Result test(@RequestBody User user) {
         System.out.println(redisTemplate.execute(RedisConnectionCommands::ping));
+        System.out.println(redisTemplate.execute(RedisConnectionCommands::ping));
         ValueOperations<String, Object> valueTemplate = redisTemplate.opsForValue();
         // 60s 生存期
         valueTemplate.set("login", user, 60, TimeUnit.SECONDS);
